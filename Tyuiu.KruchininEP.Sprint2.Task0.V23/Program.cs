@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using Tyuiu.KruchininEP.Sprint2.Task0.V23.Lib;
 
 namespace Tyuiu.KruchininEP.Sprint2.Task0.V23
@@ -7,36 +12,41 @@ namespace Tyuiu.KruchininEP.Sprint2.Task0.V23
     {
         static void Main(string[] args)
         {
-            DataService ds = new DataService();
+            DataService ds = new();
+
             Console.Title = "Спринт #2 | Выполнил: Кручинин Е. П. | РППб25-1";
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* Спринт #2                                                               *");
             Console.WriteLine("* Тема: Операции сравнения                                                *");
             Console.WriteLine("* Задание #0                                                              *");
             Console.WriteLine("* Вариант #23                                                             *");
-            Console.WriteLine("* Выполнил: Кручинин Евгений Павлович | РППб25-1                          *");
+            Console.WriteLine("* Выполнил: Кручинин Е. П. | РППб25-1                                     *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* УСЛОВИЕ:                                                                *");
-            Console.WriteLine("* Написать программу из операций сравнений (==, !=, <, >, <=, >=, после-  *");
-            Console.WriteLine("* довательность не должна нарушаться) и арифметических выражений, которая *");
-            Console.WriteLine("* вернёт логическую последовательность(массив): (True, False, True, True, *");
-            Console.WriteLine("* False, True), при x = 105, y = 795.                                     *");
+            Console.WriteLine("* Написать программу из операций сравнений (==, !=, <, >, <=, >=,         *");
+            Console.WriteLine("* последовательность операций не должна нарушаться) и арифметических      *");
+            Console.WriteLine("* выражений, которая вернет логическую последовательность(массив):        *");
+            Console.WriteLine("* (True, False, True, True, False, True),  при x = 105, y = 795           *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
-            Console.WriteLine("* x = 105   y = 795                                                       *");
+
+            int x = 105, y = 795;
+            bool[] res = new bool[6];
+            res = ds.GetCompareOperations(x, y);
+
+            Console.WriteLine("X = " + x);
+            Console.WriteLine("Y = " + y);
+
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
 
-            bool[] barrage = new bool[6];
-
-            barrage = ds.GetCompareOperations(105, 795);
-            string barrage_string = string.Join(", ", barrage);
-
-            Console.WriteLine(barrage_string);
-            Console.ReadKey();
-
+            for (int i = 0; i < res.Length; i++)
+            {
+                Console.WriteLine(res[i]);
+            }
+            Console.ReadLine();
         }
     }
 }

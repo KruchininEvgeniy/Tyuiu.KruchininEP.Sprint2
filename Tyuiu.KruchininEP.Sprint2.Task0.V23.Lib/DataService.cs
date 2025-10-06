@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using tyuiu.cources.programming.interfaces.Sprint2;
 
 namespace Tyuiu.KruchininEP.Sprint2.Task0.V23.Lib
@@ -7,15 +12,15 @@ namespace Tyuiu.KruchininEP.Sprint2.Task0.V23.Lib
     {
         public bool[] GetCompareOperations(int x, int y)
         {
-            bool[] result = new bool[6];
-            result[0] = (x + y) == 900;
-            result[1] = (x - y) == 690;
-            result[2] = (x * 2) < y;
-            result[3] = (y / 7) > x;
-            result[4] = (y <= x);
-            result[5] = (y >= 795);
+            bool[] res = new bool[6];
+            res[0] = x != y;
+            res[1] = x == y;
+            res[2] = x < y;
+            res[3] = y > x;
+            res[4] = y <= x;
+            res[5] = y >= x;
 
-            return result;
+            return res;
         }
     }
 }
